@@ -8,12 +8,17 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import Home from './app/components/Home'
+import Login from './app/components/Login'
+import Dashboard from './app/components/Dashboard'
+
 import { createStackNavigator , createAppContainer} from 'react-navigation';
 
   const AppNavigator = createStackNavigator({
-    Home: {
-      screen: Home
+    Login: {
+      screen: Login
+    },
+    Dashboard: {
+      screen: Dashboard
     }
   });
   

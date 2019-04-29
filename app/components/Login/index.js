@@ -17,7 +17,7 @@ export default class Home extends Component {
     console.warn(username,password)
     if(username == 'Admin' && password == 'admin')
     {
-        console.warn('Login Sucessfull')
+        this.props.navigation.navigate('Dashboard')
     }
     else
     {
