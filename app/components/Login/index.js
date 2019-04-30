@@ -14,16 +14,26 @@ export default class Home extends Component {
   checkLogin()
   {
     const {username,password} = this.state
-    console.warn(username,password)
-    if(username == 'Admin' && password == 'admin')
-    {
-        this.props.navigation.navigate('Dashboard')
-    }
-    else
-    {
-      console.warn('Failed to Login')
 
+   const jsonString = JSON.stringify({
+    email: username,
+    password: password,
+    })
+
+console.log(jsonString)
+
+
+    fetch('https://reqres.in/api/login',{
+      method: 'POST', body:jsonString, headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',                  
     }
+    }).then(res=> {
+        return res.json()
+    }).then(jsonData=>{
+
+          this.props.navigation.navigate('Dashboard')
+    })
   }
 
   render() {
